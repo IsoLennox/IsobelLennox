@@ -114,7 +114,7 @@ if($first_password===$confirmed_password){
 <html lang="en">
  <head>
      <meta charset="UTF-8">
-     <title>290 Project: Arbytes</title>
+     <title>New Admin</title>
      <!-- Arbyte is a pun branched from the term "Arbeit" meaning 'task' or 'work' and "bytes" -->
      <link rel="stylesheet" href="css/style.css">
  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -212,6 +212,8 @@ if($first_password===$confirmed_password){
     <?php echo form_errors($errors); ?>
     
     <h2>Create New Account</h2> 
+     
+<!--     I WILL MANUALLY CREATE A USERNAME TO LOGIN WITH FOR SECURITY -->
       
     <form action="new_user.php" method="post">
      <p id="u-error">Name:
@@ -219,7 +221,7 @@ if($first_password===$confirmed_password){
          
       </p> 
         
-        <p id="e-error">Email (Used to Log In):
+        <p id="e-error">Email:
         <input type="text" name="email" id="email" value="" /> </p>
         <div id="eavailability"></div>
    

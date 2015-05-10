@@ -47,7 +47,7 @@ if(isset($_GET['submit_content'])){
 //    UPDATE EDITED CONTENT
 //    =========================
     
-    
+    if($_SESSION['user_id']==1){ 
     
     $new_email=$_POST['email'];
     $new_about=$_POST['about'];
@@ -55,7 +55,9 @@ if(isset($_GET['submit_content'])){
     $content_result = mysqli_query($connection, $insert_content); 
     if($content_result){ $_SESSION['message']="Main Content Updated!"; redirect_to('index.php'); }else{ $_SESSION['message']="Could not update main content"; redirect_to('index.php'); }
     
-    
+    }else{
+        echo "Don't be naughty!";
+    }
     
     
     
@@ -83,7 +85,14 @@ if(isset($_GET['submit_content'])){
          <h3>About </h3>
         <textarea cols="100" rows="10" name="about" id="about" value="<?php echo $about; ?>" ><?php echo $about; ?></textarea>
          <br/>
-        <input type="submit" name="submit" value="Save" />
+        
+        
+                      <?php if($_SESSION['user_id']==1){ ?>
+        <input type="submit" name="submit" value="Save Main Content" />
+    <?php }else{ echo "You are logged in as a guest!";} ?>
+    
+    
+    
     </form>
     <hr/>
     <p>Current Image</p>
@@ -92,8 +101,9 @@ if(isset($_GET['submit_content'])){
 <form action="upload_img.php" method="post" enctype="multipart/form-data">
     Select New Image:<br/>
     <input type="file" name="image" id="fileToUpload"><br/>
- 
+ <?php if($_SESSION['user_id']==1){ ?>
     <input type="submit" value="Upload File" name="submit">
+    <?php }else{ echo "You are logged in as a guest!";} ?>
 </form>
     
     <br /> 
@@ -122,7 +132,12 @@ if(isset($_GET['submit_content'])){
         //show each result value
         echo "<ul class='one-third'>";
         foreach($skill_result as $skill_show){
-            echo "<li>".$skill_show['name']." <a href='index.php?delete_skill={$skill_show['id']}&name={$skill_show['name']}'><i class=\"right fa fa-trash-o red\"></i></a></li><hr/><br/>"; 
+            echo "<li>".$skill_show['name']." <a href='index.php?delete_skill={$skill_show['id']}&name={$skill_show['name']}'>";
+             if($_SESSION['user_id']==1){  
+           echo "<i class=\"right fa fa-trash-o red\"></i>";
+                } 
+    
+            echo "</a></li><hr/><br/>"; 
         }
         echo "</ul>";
     }else{ echo "You have no skills!"; }//END GET SKILLS 
@@ -131,7 +146,11 @@ if(isset($_GET['submit_content'])){
             <form action="index.php?submit_skill" method="post">
             <h3>Name</h3>
             <input type="text" name="name" id="name" value="" />  <br/>
-            <input type="submit" name="submit" value="Save" />
+            
+            
+             <?php if($_SESSION['user_id']==1){ ?>
+           <input type="submit" name="submit" value="Save" />
+    <?php }else{ echo "You are logged in as a guest!";} ?>
         </form>
         <?php        
     
@@ -146,11 +165,15 @@ if(isset($_GET['submit_content'])){
     
 }elseif(isset($_GET['submit_skill'])){ 
     
+    if($_SESSION['user_id']==1){ 
+    
     $insert_skill = "INSERT INTO skills (name) VALUES ('{$_POST['name']}')";
     $skill_result = mysqli_query($connection, $insert_skill); 
     if($skill_result){ $_SESSION['message']="New skill created!"; redirect_to('index.php?edit_skills'); }else{ $_SESSION['message']="Could not add skill"; redirect_to('index.php?edit_skills'); }
  
-
+    }else{
+        echo "Don't be naughty!";
+    }
     
         
 //    =========================
@@ -161,12 +184,15 @@ if(isset($_GET['submit_content'])){
     
     
 }elseif(isset($_GET['delete_skill'])){ 
+    if($_SESSION['user_id']==1){ 
     
     $delete_skill = "DELETE FROM skills WHERE id = {$_GET['delete_skill']}";
     $skill_result = mysqli_query($connection, $delete_skill); 
     if($skill_result){ $_SESSION['message']="Skill: {$_GET['name']} Deleted!"; redirect_to('index.php?edit_skills'); }else{ $_SESSION['message']="Could not add skill"; redirect_to('index.php?edit_skills'); }
  
-    
+    }else{
+        echo "Don't be naughty!";
+    }
 
     
         
@@ -183,7 +209,7 @@ if(isset($_GET['submit_content'])){
     <h4>Edit Project <span class="right"> <a title="Show Link Title" href="index.php?edit_projects"><i class="fa fa-home"></i> <span class="small">Cancel</span>  
 </a> </span></h4>
     <?php
-     $project_id=$_GET['edit_this_project'];
+        $project_id=$_GET['edit_this_project'];
      
         $query  = "SELECT * FROM projects WHERE id={$project_id}";  
         $result = mysqli_query($connection, $query);
@@ -237,7 +263,13 @@ if(isset($_GET['submit_content'])){
          ?>
  
 <br/><br/>
-        <input type="submit" value="Save Project" name="submit">
+        
+        
+                 <?php if($_SESSION['user_id']==1){ ?>
+         <input type="submit" value="Save Project" name="submit">
+    <?php }else{ echo "You are logged in as a guest!";} ?>
+    
+    
     </form>
              <?php    }
         }else{ echo "This Project Does Not Exist!"; }
@@ -277,7 +309,14 @@ if(isset($_GET['submit_content'])){
 <!--        <p>You must re-upload an image each time you edit this project.</p>-->
         <input type="file" name="image" id="fileToUpload" value=""><br/>
 <br/><br/>
-        <input type="submit" value="Save Project" name="submit">
+        
+        
+                      <?php if($_SESSION['user_id']==1){ ?>
+         <input type="submit" value="Save Project" name="submit">
+    <?php }else{ echo "You are logged in as a guest!";} ?>
+    
+    
+    
     </form>
              <?php    }
         }else{ echo "This Project Does Not Exist!"; }
@@ -349,8 +388,12 @@ if(isset($_GET['submit_content'])){
 
         <h3>Screenshot (Works best when 400x250 px):</h3>
         <input type="file" name="image" id="fileToUpload"><br/>
-
-        <input type="submit" value="Save Project" name="submit">
+ 
+        
+                      <?php if($_SESSION['user_id']==1){ ?>
+         <input type="submit" value="Save Project" name="submit">
+    <?php }else{ echo "You are logged in as a guest!";} ?>
+    
     </form>
     
     
@@ -362,7 +405,7 @@ if(isset($_GET['submit_content'])){
 //    UPDATE EDITED PROJECT
 //    =========================
     
-     
+     if($_SESSION['user_id']==1){ 
      
     $new_title=$_POST['title'];
     $new_subtitle=$_POST['subtitle'];
@@ -396,7 +439,9 @@ if(isset($_GET['submit_content'])){
                 echo "Could not delete skills";
             }
          
-
+     }else{
+        echo "Don't be naughty!";
+    }
     
 }else{ ?>
     
@@ -460,6 +505,7 @@ if(isset($_GET['submit_content'])){
            
     <h4>Projects <span class="right"> <a title="Show Link Title" href="index.php?add_project"><i class="fa fa-plus"></i> <span class="small"> New Project</span>  
 </a>  </span></h4>
+             <div class="projects_container">
               <?php         
 
         $query  = "SELECT * FROM projects";  
@@ -468,13 +514,15 @@ if(isset($_GET['submit_content'])){
         if($num_rows>=1){
             //show each result value
             foreach($result as $show){
-            echo "<div class='projects left'>";
-                echo "<a href='index.php?edit_this_project={$show['id']}'><i class=\"fa fa-pencil\"> Edit Content</i></a> | <a href='index.php?edit_project_img={$show['id']}'><i class=\"fa fa-pencil\"> Edit Image</i></a> | <a href='index.php?delete_project'><i class=\"red fa fa-trash-o\"></i></a><br/><br/>";
+                
+                
+            echo "<div class='projects'>";
+                
             echo "<a href='{$show['url']}' title='View Project'><img src='{$show['image']}' alt=\"Project Screenshot\" /></a>";
             
-            echo "<h2>".$show['title']."</h2><br/>";
-            echo "<strong>Subtitle:</strong> ".$show['subtitle']."<br/>";
-            echo "<strong>Created For:</strong> ".$show['created_for']."<br/>";
+             echo "<h3>".$show['title']."</h3> ";
+                echo "<p>".$show['subtitle']."</p> ";
+                echo "<p>".$show['created_for']."</p> "; 
                 
                 $skill_query  = "SELECT * FROM skill_project WHERE project_id={$show['id']}";  
                 $skill_result = mysqli_query($connection, $skill_query);
@@ -492,9 +540,9 @@ if(isset($_GET['submit_content'])){
                    
                 }//end get skills 
                 
+                echo "<br/><br/><a href='index.php?edit_this_project={$show['id']}'><i class=\"fa fa-pencil\"> Edit Content</i></a> | <a href='index.php?edit_project_img={$show['id']}'><i class=\"fa fa-pencil\"> Edit Image</i></a> | <a href='index.php?delete_project'><i class=\"red fa fa-trash-o\"></i></a><br/><br/>";
                 
-                
-                echo "</div>"; 
+                echo "</div><hr/>"; 
 
             }//end show each project
         }else{ echo "You do not have any projects yet!"; }
@@ -502,28 +550,7 @@ if(isset($_GET['submit_content'])){
  
          }//end show all, no edits ?> 
           
-<!--
-    <h4>Resume <span class="right"> <a title="Show Link Title" href="browse.php"><i class="fa fa-upload"></i> <span class="small">Edit</span>  
-</a> </span></h4>
-         <p>Link to read-only google doc</p>
--->
-           
-           <?php
-
-//example query
-
-//    $query  = "SELECT * FROM TABLE";  
-//    $result = mysqli_query($connection, $query);
-//    if($result){
-//        //show each result value
-//        foreach($result as $show){
-//            
-//            $this_value=$show['col_name'];
-//            echo $this_value;
-//                      
-//            }
-//        }
- ?>
+</div> 
      
       
         

@@ -42,15 +42,18 @@ confirm_logged_in(); ?>
     
     
 <!--    FULL SITE  -->
-    <header id="full">
-        <span class="left min-five"><a href="index.php">Edit Portfolio</a></span>
+    <header>
+        <h1><a href="index.php">Edit Portfolio</a></h1>
         
         
 <!--        USER ICONS -->
-    <span class="right username">
-      <i class="fa fa-user"> </i> <?php echo $_SESSION['name']; ?> | 
-       <a title="Manage Account Settings" href="settings.php?user=<?php echo $_SESSION['user_id'] ?>"><i class="fa fa-cog"></i></a> | 
-       <a title="Log Out" href="logout.php"><i class="fa fa-sign-out"></i></a> </span>
+    <nav>
+     <ul>
+         <li><i class="fa fa-user"> </i> <?php echo $_SESSION['name']; ?></li>
+         <li><a title="Manage Account Settings" href="settings.php?user=<?php echo $_SESSION['user_id'] ?>"><i class="fa fa-cog"></i></a></li>
+         <li><a title="Log Out" href="logout.php"><i class="fa fa-sign-out"></i></a></li>
+     </ul>
+  </nav>
         
  
           </header>
