@@ -18,10 +18,10 @@ require_once("inc/functions.php");
     
         <nav>
         <ul> 
-            <li><a href="index.php?projects"><i class="fa fa-file-code-o"></i> Projects </a></li> 
-            <li><a href="http://github.com/isolennox"><i class="fa fa-github"></i> </a></li>
-            <li><a href="http://codepen.io/IsoLennox/"><i class="fa fa-codepen"> </i> </a></li>
-            <li><a href="http://lennoxfiles.wordpress.com"><i class="fa fa-wordpress"></i> </a></li>
+           <a href="index.php?projects"> <li><i class="fa fa-file-code-o"></i> Projects </li></a>
+            <a href="http://github.com/isolennox"><li><i class="fa fa-github"></i> </li></a>
+             <a href="http://codepen.io/IsoLennox/"><li><i class="fa fa-codepen"> </i> </li></a>
+            <a href="http://lennoxfiles.wordpress.com"><li><i class="fa fa-wordpress"></i> </li></a>
         </ul>
     </nav>   
 </header>
