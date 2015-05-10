@@ -1,0 +1,20 @@
+[19-Apr-2015 23:22:06 America/Chicago] PHP Warning:  getimagesize(): Filename cannot be empty in /home4/ilennox/public_html/admin/inc/upload_img.php on line 25
+[19-Apr-2015 23:22:06 America/Chicago] PHP Fatal error:  Call to undefined function redirect_to() in /home4/ilennox/public_html/admin/inc/upload_img.php on line 56
+[19-Apr-2015 23:24:23 America/Chicago] PHP Warning:  getimagesize(): Filename cannot be empty in /home4/ilennox/public_html/admin/inc/upload_img.php on line 25
+[19-Apr-2015 23:24:23 America/Chicago] PHP Fatal error:  Call to undefined function redirect_to() in /home4/ilennox/public_html/admin/inc/upload_img.php on line 56
+[19-Apr-2015 23:25:03 America/Chicago] PHP Warning:  include(inc/header.php): failed to open stream: No such file or directory in /home4/ilennox/public_html/admin/inc/upload_img.php on line 1
+[19-Apr-2015 23:25:03 America/Chicago] PHP Warning:  include(inc/header.php): failed to open stream: No such file or directory in /home4/ilennox/public_html/admin/inc/upload_img.php on line 1
+[19-Apr-2015 23:25:03 America/Chicago] PHP Warning:  include(): Failed opening 'inc/header.php' for inclusion (include_path='.:/opt/php55/lib/php') in /home4/ilennox/public_html/admin/inc/upload_img.php on line 1
+[19-Apr-2015 23:25:03 America/Chicago] PHP Warning:  getimagesize(): Filename cannot be empty in /home4/ilennox/public_html/admin/inc/upload_img.php on line 25
+[19-Apr-2015 23:25:03 America/Chicago] PHP Fatal error:  Call to undefined function redirect_to() in /home4/ilennox/public_html/admin/inc/upload_img.php on line 56
+[19-Apr-2015 23:25:23 America/Chicago] PHP Warning:  include(inc/functions.php): failed to open stream: No such file or directory in /home4/ilennox/public_html/admin/inc/upload_img.php on line 1
+[19-Apr-2015 23:25:23 America/Chicago] PHP Warning:  include(inc/functions.php): failed to open stream: No such file or directory in /home4/ilennox/public_html/admin/inc/upload_img.php on line 1
+[19-Apr-2015 23:25:23 America/Chicago] PHP Warning:  include(): Failed opening 'inc/functions.php' for inclusion (include_path='.:/opt/php55/lib/php') in /home4/ilennox/public_html/admin/inc/upload_img.php on line 1
+[19-Apr-2015 23:25:23 America/Chicago] PHP Warning:  getimagesize(): Filename cannot be empty in /home4/ilennox/public_html/admin/inc/upload_img.php on line 25
+[19-Apr-2015 23:25:23 America/Chicago] PHP Fatal error:  Call to undefined function redirect_to() in /home4/ilennox/public_html/admin/inc/upload_img.php on line 56
+[19-Apr-2015 23:25:37 America/Chicago] PHP Warning:  getimagesize(): Filename cannot be empty in /home4/ilennox/public_html/admin/inc/upload_img.php on line 25
+[19-Apr-2015 23:25:47 America/Chicago] PHP Warning:  getimagesize(): Filename cannot be empty in /home4/ilennox/public_html/admin/inc/upload_img.php on line 25
+[19-Apr-2015 23:26:22 America/Chicago] PHP Warning:  getimagesize(): Filename cannot be empty in /home4/ilennox/public_html/admin/inc/upload_img.php on line 25
+[19-Apr-2015 23:41:52 America/Chicago] PHP Warning:  getimagesize(): Filename cannot be empty in /home4/ilennox/public_html/admin/inc/upload_img.php on line 25
+[19-Apr-2015 23:50:21 America/Chicago] PHP Warning:  getimagesize(): Filename cannot be empty in /home4/ilennox/public_html/admin/inc/upload_img.php on line 25
+[19-Apr-2015 23:51:54 America/Chicago] PHP Warning:  getimagesize(): Filename cannot be empty in /home4/ilennox/public_html/admin/inc/upload_img.php on line 25

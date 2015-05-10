@@ -1,0 +1,34 @@
+[19-Apr-2015 23:13:22 America/Chicago] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home4/ilennox/public_html/admin/index.php on line 29
+[19-Apr-2015 23:32:10 America/Chicago] PHP Parse error:  syntax error, unexpected '"UPDATE `ilennox_portfolio`.`m' (T_CONSTANT_ENCAPSED_STRING) in /home4/ilennox/public_html/admin/index.php on line 33
+[19-Apr-2015 23:32:32 America/Chicago] PHP Parse error:  syntax error, unexpected '"UPDATE 'ilennox_portfolio'.'m' (T_CONSTANT_ENCAPSED_STRING) in /home4/ilennox/public_html/admin/index.php on line 33
+[19-Apr-2015 23:33:03 America/Chicago] PHP Parse error:  syntax error, unexpected '"UPDATE main_content SET email' (T_CONSTANT_ENCAPSED_STRING) in /home4/ilennox/public_html/admin/index.php on line 33
+[19-Apr-2015 23:52:57 America/Chicago] PHP Fatal error:  Cannot redeclare redirect_to() (previously declared in /home4/ilennox/public_html/admin/inc/functions.php:3) in /home4/ilennox/public_html/admin/inc/functions.php on line 5
+[19-Apr-2015 23:53:18 America/Chicago] PHP Warning:  getimagesize(): Filename cannot be empty in /home4/ilennox/public_html/admin/inc/upload_img.php on line 25
+[19-Apr-2015 23:54:13 America/Chicago] PHP Warning:  getimagesize(): Filename cannot be empty in /home4/ilennox/public_html/admin/inc/upload_img.php on line 25
+[19-Apr-2015 23:55:12 America/Chicago] PHP Warning:  getimagesize(): Filename cannot be empty in /home4/ilennox/public_html/admin/inc/upload_img.php on line 25
+[20-Apr-2015 00:02:45 America/Chicago] PHP Warning:  getimagesize(): Filename cannot be empty in /home4/ilennox/public_html/admin/inc/upload_img.php on line 25
+[20-Apr-2015 00:17:35 America/Chicago] PHP Parse error:  syntax error, unexpected '/' in /home4/ilennox/public_html/admin/index.php on line 120
+[20-Apr-2015 17:59:45 America/Chicago] PHP Fatal error:  Cannot redeclare find_user_by_username() (previously declared in /home4/ilennox/public_html/admin/inc/functions.php:52) in /home4/ilennox/public_html/admin/inc/functions.php on line 204
+[20-Apr-2015 21:01:46 America/Chicago] PHP Deprecated:  mysql_real_escape_string(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home4/ilennox/public_html/admin/new_project.php on line 24
+[20-Apr-2015 21:01:46 America/Chicago] PHP Warning:  mysql_real_escape_string(): Access denied for user 'root'@'localhost' (using password: NO) in /home4/ilennox/public_html/admin/new_project.php on line 24
+[20-Apr-2015 21:01:46 America/Chicago] PHP Warning:  mysql_real_escape_string(): A link to the server could not be established in /home4/ilennox/public_html/admin/new_project.php on line 24
+[20-Apr-2015 21:01:46 America/Chicago] PHP Deprecated:  mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home4/ilennox/public_html/admin/new_project.php on line 25
+[20-Apr-2015 21:01:46 America/Chicago] PHP Warning:  mysql_query(): Access denied for user 'root'@'localhost' (using password: NO) in /home4/ilennox/public_html/admin/new_project.php on line 25
+[20-Apr-2015 21:01:46 America/Chicago] PHP Warning:  mysql_query(): A link to the server could not be established in /home4/ilennox/public_html/admin/new_project.php on line 25
+[20-Apr-2015 21:03:48 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home4/ilennox/public_html/admin/new_project.php on line 23
+[20-Apr-2015 21:04:42 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home4/ilennox/public_html/admin/new_project.php on line 23
+[20-Apr-2015 21:05:24 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home4/ilennox/public_html/admin/new_project.php on line 23
+[20-Apr-2015 21:07:01 America/Chicago] PHP Deprecated:  mysql_real_escape_string(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home4/ilennox/public_html/admin/new_project.php on line 24
+[20-Apr-2015 21:07:01 America/Chicago] PHP Warning:  mysql_real_escape_string(): Access denied for user 'root'@'localhost' (using password: NO) in /home4/ilennox/public_html/admin/new_project.php on line 24
+[20-Apr-2015 21:07:01 America/Chicago] PHP Warning:  mysql_real_escape_string(): A link to the server could not be established in /home4/ilennox/public_html/admin/new_project.php on line 24
+[20-Apr-2015 21:07:01 America/Chicago] PHP Deprecated:  mysql_query(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home4/ilennox/public_html/admin/new_project.php on line 25
+[20-Apr-2015 21:07:01 America/Chicago] PHP Warning:  mysql_query(): Access denied for user 'root'@'localhost' (using password: NO) in /home4/ilennox/public_html/admin/new_project.php on line 25
+[20-Apr-2015 21:07:01 America/Chicago] PHP Warning:  mysql_query(): A link to the server could not be established in /home4/ilennox/public_html/admin/new_project.php on line 25
+[20-Apr-2015 21:07:23 America/Chicago] PHP Warning:  mysqli_real_escape_string() expects exactly 2 parameters, 1 given in /home4/ilennox/public_html/admin/new_project.php on line 24
+[20-Apr-2015 21:07:23 America/Chicago] PHP Warning:  mysqli_query() expects at least 2 parameters, 1 given in /home4/ilennox/public_html/admin/new_project.php on line 25
+[20-Apr-2015 21:10:42 America/Chicago] PHP Warning:  mysqli_query() expects at least 2 parameters, 1 given in /home4/ilennox/public_html/admin/new_project.php on line 24
+[20-Apr-2015 21:41:49 America/Chicago] PHP Parse error:  syntax error, unexpected end of file in /home4/ilennox/public_html/admin/index.php on line 139
+[22-Apr-2015 20:41:24 America/Chicago] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home4/ilennox/public_html/admin/index.php on line 158
+[26-Apr-2015 14:22:58 America/Chicago] PHP Warning:  unlink(img/wireframe1.png): No such file or directory in /home4/ilennox/public_html/admin/edit_project.php on line 12
+[26-Apr-2015 14:23:07 America/Chicago] PHP Warning:  unlink(img/wireframe1.png): No such file or directory in /home4/ilennox/public_html/admin/edit_project.php on line 12
+[26-Apr-2015 14:53:39 America/Chicago] PHP Warning:  unlink(img/default_project.png): No such file or directory in /home4/ilennox/public_html/admin/edit_project.php on line 12
