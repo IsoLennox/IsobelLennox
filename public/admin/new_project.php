@@ -6,9 +6,11 @@ $subtitle= $_POST['subtitle'];
 $for= $_POST['createdfor'];
 $url= $_POST['url'];
 $skills_array= $_POST['skill'];
+$published=$_POST['published'];
+$created=$_POST['created'];
 
     //INSERT ALL DATA EXCEPT IMAGE
-$insert  = "INSERT INTO projects ( title, subtitle, created_for, url ) VALUES ( '{$title}', '{$subtitle}', '{$for}', '{$url}' ) ";
+$insert  = "INSERT INTO projects ( title, subtitle, created_for, url, published, created ) VALUES ( '{$title}', '{$subtitle}', '{$for}', '{$url}', '{$published}','{$created}' ) ";
 $insert_result = mysqli_query($connection, $insert);
 if($insert_result){
     

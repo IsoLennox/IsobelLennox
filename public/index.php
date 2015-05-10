@@ -1,4 +1,7 @@
-<?php require_once("inc/db_connect.inc");  ?>
+<?php 
+require_once("inc/db_connect.inc");
+require_once("inc/functions.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,16 +34,14 @@
     
         $skill_id=$_POST['skills'];
         
-        
-             echo "<h1>";
-        //GET SKILLS
+                //GET SKILLS
         $skill_query  = "SELECT * FROM skills";  
         $skill_result = mysqli_query($connection, $skill_query);
         $skill_num_rows = mysqli_num_rows($skill_result);
         if($skill_num_rows>=1){ ?>
           <form method="POST" >
            <select name="skills" id="skills" onChange="this.form.submit()">
-            <option value="1">All Skills</option>
+            <option value="">All Projects</option>
          <?php   
             foreach($skill_result as $skill_show){
                 if($skill_show['id']==$skill_id){
@@ -51,22 +52,39 @@
                 echo "<option ".$selected." value=\"".$skill_show['id']."\">".$skill_show['name']."  "; 
                 } 
             echo "</select></form>"; } 
+        
+        
+         if(empty($skill_id)){ 
+             
+             
+                $all_projects=all_projects();
+                echo $all_projects;
 
-
- 
-
+                             
+                             
+                             }else{
+        
+             echo "<h1>"; 
       //get number of projects with this skill
         $skill_count  = "SELECT * FROM skill_project WHERE skill_id={$skill_id}";  
         $count_result = mysqli_query($connection, $skill_count);
-        if($count_result){
-            $num_rows = mysqli_num_rows($count_result); 
-            $i=1;
-            while( $i<=$num_rows){
-            echo " <i class=\"fa fa-file-code-o\"></i>"; 
-                $i++;
+        foreach($count_result as $projects){
+            
+             $project_count  = "SELECT * FROM projects WHERE id={$projects['project_id']} AND published=1";  
+            $pcount_result = mysqli_query($connection, $project_count);
+            if($pcount_result){
+                $num_rows = mysqli_num_rows($pcount_result); 
+                $i=1;
+                while( $i<=$num_rows){
+                echo " <i class=\"fa fa-file-code-o\"></i>"; 
+                    $i++;
+                }
             }
         }
     echo " </h1>"; 
+        
+        
+       
             
 //     GET ALL PROJECTS WITH THIS SKILL 
                                      
@@ -79,7 +97,7 @@
                  
           <div class="projects_container">
             <?php
-            $query  = "SELECT * FROM projects WHERE id={$project['project_id']} ORDER BY id DESC";  
+            $query  = "SELECT * FROM projects WHERE id={$project['project_id']} AND published=1 ORDER BY id DESC";  
             $result = mysqli_query($connection, $query);
             $num_rows = mysqli_num_rows($result);
             if($num_rows>=1){
@@ -119,9 +137,9 @@
 
                     echo "<hr/>";
                 }//end show each project
-            }else{ echo "Isobel does not have any projects yet!"; } ?>
+            } ?>
 
-                 <hr/>
+                
        
         </div>
         <?php
@@ -130,7 +148,7 @@
                     
                     
                 }
-            
+    }
             
     }elseif(isset($_GET['projects'])){
      echo "<h1>";
@@ -141,7 +159,7 @@
         if($skill_num_rows>=1){ ?>
           <form method="POST" >
            <select name="skills" id="skills" onChange="this.form.submit()">
-            <option value="1">All Skills</option>
+            <option value="">All Projects</option>
          <?php   
             foreach($skill_result as $skill_show){
                 echo "<option value=\"".$skill_show['id']."\">".$skill_show['name']."  "; 
@@ -152,7 +170,7 @@
  
 
       //get number of projects with this skill
-        $skill_count  = "SELECT * FROM skill_project WHERE skill_id=6";  
+        $skill_count  = "SELECT * FROM projects WHERE published=1";  
         $count_result = mysqli_query($connection, $skill_count);
         if($count_result){
             $num_rows = mysqli_num_rows($count_result); 
@@ -163,58 +181,9 @@
             }
         }
     echo " </h1>";
-            ?> 
-        
-       
-        
-        <div class="projects_container">
-            <?php
-            $query  = "SELECT * FROM projects ORDER BY id DESC";  
-            $result = mysqli_query($connection, $query);
-            $num_rows = mysqli_num_rows($result);
-            if($num_rows>=1){
-                //show each result value
-                foreach($result as $show){
-                echo "<div class='projects'>";    
-                    if(empty($show['image'])){
-                    echo "<a target='_blank' href='".$show['url']."' title='View Project'><img src='admin/default_project.png' alt=\"Project Screenshot\" /></a>";
-                    }else{
-                echo "<a target='_blank' href='".$show['url']."' title='View {$show['title']}'><img src='admin/{$show['image']}' alt=\"Project Screenshot\" /></a>";
-                    }
-                echo "<h3>".$show['title']."</h3> ";
-                echo "<p>".$show['subtitle']."</p> ";
-                echo "<p>".$show['created_for']."</p> "; 
-                $skill_query  = "SELECT * FROM skill_project WHERE project_id={$show['id']}";  
-                $skill_result = mysqli_query($connection, $skill_query);
-                $skill_num_rows = mysqli_num_rows($skill_result);
-                if($skill_num_rows>=1){  
-                     echo "<p><strong>Skills:</strong> ";
-                foreach($skill_result as $skill_show){
-                        $skill_name_query  = "SELECT * FROM skills WHERE id={$skill_show['skill_id']} ";  
-                        $skill_name_result = mysqli_query($connection, $skill_name_query); 
-                        if($skill_name_result){  
-                            $skill_array=mysqli_fetch_assoc($skill_name_result);
-                        echo  $skill_array['name'].", "; 
-                        }//end print skill name 
-                    
-                }//end loop through skills if found  
-                    echo "</p>";
-                   
-                }//end get skills 
-                    
-                    
-                echo "<a href=\"".$show['url']."\" >View this Project</a>";
-
-                echo "</div> ";
-
-                    echo "<hr/>";
-                }//end show each project
-            }else{ echo "Isobel does not have any projects yet!"; } ?>
-
-                 <hr/>
-       
-        </div>
-        <?php
+   
+        $all_projects=all_projects();
+        echo $all_projects;
 
 }else{
     

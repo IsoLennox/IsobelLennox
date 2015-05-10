@@ -227,7 +227,11 @@ if(isset($_GET['submit_content'])){
         <h3>Subtitle</h3>
         <input type="text" name="subtitle" id="subtitle" value="<?php echo $show['subtitle']; ?>" placeholder="A team collaboration tool..." /> 
         
-        <h3>Created For</h3>
+        <h3>Created </h3>
+        <input type="text" name="created" id="created" value="<?php echo $show['created']; ?>" placeholder="April 2009..." /> 
+        
+        
+        <h3>Built For</h3>
         <input type="text" name="createdfor" id="createdfor" value="<?php echo $show['created_for']; ?>" placeholder="Personal Development..." /> 
         
         <h3>URL</h3>
@@ -260,6 +264,18 @@ if(isset($_GET['submit_content'])){
              echo "<input type=\"checkbox\" name=\"skill[]\" value=\"".$skill_show['id']."\" ".$checked." >".$skill_show['name']."<br/>"; 
         } 
         
+         
+    
+                if($show['published']==1){ ?>
+                  <br><br>
+                   <input type="radio" name="published" id="published" value="0"> Keep Unpublished
+            <input checked="checked" type="radio" name="published" id="published" value="1"> Publish
+               <?php }else{ ?>
+                   <input checked="checked"  type="radio" name="published" id="published" value="0"> Keep Unpublished
+                    <input type="radio" name="published" id="published" value="1"> Publish
+            <?php    }  
+            
+            
     }else{ echo "You have no skills! You can edit this project to add skills later."; }//END GET SKILLS 
          ?>
  
@@ -363,6 +379,10 @@ if(isset($_GET['submit_content'])){
 
         <h3>Subtitle</h3>
         <input type="text" name="subtitle" id="subtitle" value="" placeholder="A team collaboration tool..." /> 
+                
+        <h3>Created </h3>
+        <input type="text" name="created" id="created" value="" placeholder="April 2009..." /> 
+        
         
         <h3>Created For</h3>
         <input type="text" name="createdfor" id="createdfor" value="" placeholder="Personal Development..." /> 
@@ -386,12 +406,24 @@ if(isset($_GET['submit_content'])){
         
     }else{ echo "You have no skills! You can edit this project to add skills later."; }//END GET SKILLS 
          ?>
+         
+         <br>
+         <br>
+          <input checked type="radio" name="published" id="published" value="0"> Keep Unpublished
+        <input type="radio" name="published" id="published" value="1"> Publish
+        
+        <br>
+        <br>
 
         <h3>Screenshot (Works best when 400x250 px):</h3>
         <input type="file" name="image" id="fileToUpload"><br/>
  
-        
-                      <?php if($_SESSION['user_id']==1){ ?>
+         
+      
+          
+     
+    
+   <?php if($_SESSION['user_id']==1){ ?>
          <input type="submit" value="Save Project" name="submit">
     <?php }else{ echo "You are logged in as a guest!";} ?>
     
@@ -411,8 +443,10 @@ if(isset($_GET['submit_content'])){
     $new_title=$_POST['title'];
     $new_subtitle=$_POST['subtitle'];
     $new_createdfor=$_POST['createdfor'];
+    $new_created=$_POST['created'];
     $new_url=$_POST['url'];
     $skills_array=$_POST['skill'];
+    $published=$_POST['published'];
     
         //DELETE ALL SKILLS
             $delete_skills  = "DELETE FROM skill_project WHERE project_id={$_GET['submit_project']}";  
@@ -425,7 +459,7 @@ if(isset($_GET['submit_content'])){
             $insert_skill_result = mysqli_query($connection, $insert_skill);
                 } 
                 
-            $insert_content = "UPDATE projects SET title = '{$new_title}', subtitle = '{$new_subtitle}', created_for='{$new_createdfor}', url='{$new_url}' WHERE id = {$_GET['submit_project']} ";
+            $insert_content = "UPDATE projects SET title = '{$new_title}', subtitle = '{$new_subtitle}', created_for='{$new_createdfor}',created='{$new_created}', published= {$published}, url='{$new_url}' WHERE id = {$_GET['submit_project']} ";
             $content_result = mysqli_query($connection, $insert_content); 
             if($content_result){ 
                 $_SESSION['message']="Project Updated!"; 
@@ -497,6 +531,8 @@ if(isset($_GET['submit_content'])){
         }//end foreach skill
         echo "</ul>"; 
         
+        
+        
     }else{ echo "You have no skills!"; }//END GET SKILLS 
  ?>
  
@@ -509,7 +545,7 @@ if(isset($_GET['submit_content'])){
              <div class="projects_container">
               <?php         
 
-        $query  = "SELECT * FROM projects";  
+        $query  = "SELECT * FROM projects ORDER BY created DESC, id DESC";  
         $result = mysqli_query($connection, $query);
         $num_rows = mysqli_num_rows($result);
         if($num_rows>=1){
@@ -523,7 +559,9 @@ if(isset($_GET['submit_content'])){
             
              echo "<h3>".$show['title']."</h3> ";
                 echo "<p>".$show['subtitle']."</p> ";
+                echo "<p><em>".$show['created']."</em></p> "; 
                 echo "<p>".$show['created_for']."</p> "; 
+                
                 
                 $skill_query  = "SELECT * FROM skill_project WHERE project_id={$show['id']}";  
                 $skill_result = mysqli_query($connection, $skill_query);
@@ -540,7 +578,11 @@ if(isset($_GET['submit_content'])){
                 }//end loop through skills if found  
                    
                 }//end get skills 
-                
+                if($show['published']==1){
+                    echo "<h3>Published</h3>";
+                }else{
+                    echo "<h3 style=\"color:red;\">Unpublished</h3>";
+                }
                 echo "<br/><br/><a href='index.php?edit_this_project={$show['id']}'><i class=\"fa fa-pencil\"> Edit Content</i></a> | <a href='index.php?edit_project_img={$show['id']}'><i class=\"fa fa-pencil\"> Edit Image</i></a> | <a href='index.php?delete_project'><i class=\"red fa fa-trash-o\"></i></a><br/><br/>";
                 
                 echo "</div><hr/>"; 
