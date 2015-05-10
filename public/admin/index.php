@@ -51,6 +51,7 @@ if(isset($_GET['submit_content'])){
     
     $new_email=$_POST['email'];
     $new_about=$_POST['about'];
+//        $new_about = htmlspecialchars_decode($new_about);
     $insert_content = "UPDATE main_content SET email = '{$new_email}', about = '{$new_about}' WHERE id = 5 ";
     $content_result = mysqli_query($connection, $insert_content); 
     if($content_result){ $_SESSION['message']="Main Content Updated!"; redirect_to('index.php'); }else{ $_SESSION['message']="Could not update main content"; redirect_to('index.php'); }

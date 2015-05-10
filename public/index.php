@@ -16,8 +16,8 @@
         <nav>
         <ul> 
             <li><a href="index.php?projects"><i class="fa fa-file-code-o"></i> Projects </a></li> 
-            <li><a href="http://github.com.isolennox"><i class="fa fa-github"></i> </a></li>
-            <li><a href="http://codepen.io/isolennox"><i class="fa fa-codepen"> </i> </a></li>
+            <li><a href="http://github.com/isolennox"><i class="fa fa-github"></i> </a></li>
+            <li><a href="http://codepen.io/IsoLennox/"><i class="fa fa-codepen"> </i> </a></li>
             <li><a href="http://lennoxfiles.wordpress.com"><i class="fa fa-wordpress"></i> </a></li>
         </ul>
     </nav>   
@@ -230,7 +230,7 @@
                 $image = $main_show['image'];
                 }
             $email = $main_show['email'];
-            $about = $main_show['about'];  
+            $about = nl2br($main_show['about']); 
 
         }
     }else{ 
