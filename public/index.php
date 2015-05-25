@@ -1,13 +1,31 @@
 <?php 
 require_once("inc/db_connect.inc");
 require_once("inc/functions.php");
+require_once("inc/session.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Isobel Lennox</title>
-    <link rel="stylesheet" href="css/main.css">
+    
+          <?php
+ 
+//CHECK FOR THEME
+    if($_SESSION['theme']==1){ ?>
+        <link rel="stylesheet" href="css/main.css">
+    
+<?php    }else{
+        
+        ?>
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/light.css">
+    
+<?php 
+    
+    }
+
+?> 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link href="http://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="js/jquery-2.1.1.min.js">
@@ -28,11 +46,17 @@ require_once("inc/functions.php");
 
 <div id="page">
 
-      <?php
-
-    if(isset($_POST['skills'])){
+      <?php  
+    if(isset($_POST['skills']) || isset($_GET['skills'])){
     
-        $skill_id=$_POST['skills'];
+        
+        if(isset($_POST['skills'])){
+            $skill_id=$_POST['skills'];
+        }
+        if(isset($_GET['skills'])){
+            $skill_id=$_GET['skills'];
+        }
+        
         
                 //GET SKILLS
         $skill_query  = "SELECT * FROM skills";  
@@ -208,7 +232,17 @@ require_once("inc/functions.php");
         $about = "Say something...";  
     }
     
-    ?>
+   
+//CHECK FOR THEME
+    if($_SESSION['theme']==1){ ?>
+       <span class="right"><a href="theme.php">Light Theme</a></span>
+    
+<?php    }else{
+        
+        ?>
+    <span class="right"><a href="theme.php">Dark Theme</a></span>
+    
+<?php   } ?>
 
 
 <!--         GET BASIC INFO    -->
@@ -216,6 +250,59 @@ require_once("inc/functions.php");
         <img src="<?php echo $image; ?>" alt="current image">
          <h3>Email </h3> <p><?php echo $email; ?></p> 
          <h3>About </h3> <p><?php echo $about; ?></p>
+         
+         
+         
+         
+         
+         
+         <br>
+	<h3>Resume</h3>
+	<a href="inc/Isobel_Lennox_Resume.docx">DOCX</a> | <a href="inc/Isobel_Lennox_Resume.pdf">PDF</a>
+         <br>
+         <br>
+         <br>
+         <br>
+         <br>
+         <br>
+    
+         
+             
+<!--    GET ALL SKILLS   -->
+    
+<!--    <h4>// Skills </h4>-->
+     <?php
+    //GET SKILLS
+//    $skill_query  = "SELECT * FROM skills";  
+//    $skill_result = mysqli_query($connection, $skill_query);
+//    $skill_num_rows = mysqli_num_rows($skill_result);
+//    if($skill_num_rows>=1){
+//         
+//        //show each result value
+//        echo "<ul>";
+//        foreach($skill_result as $skill_show){
+//            echo "<li><a href=\"index.php?skills={$skill_show['id']}\">".$skill_show['name']."</a>"; 
+//            
+//            //get number of projects with this skill
+//                $skill_count  = "SELECT * FROM skill_project WHERE skill_id={$skill_show['id']}";  
+//                $count_result = mysqli_query($connection, $skill_count);
+//                if($count_result){
+//                    $num_rows = mysqli_num_rows($count_result); 
+//                    $i=1;
+//                    while( $i<=$num_rows){
+//                    echo " <i class=\"fa fa-file-code-o\"></i>"; 
+//                        $i++;
+//                    }
+//                }
+//            echo "</li><br/>";
+//        }//end foreach skill
+//        echo "</ul>"; 
+//        
+//        
+        
+//    }else{ echo "You have no skills!"; }//END GET SKILLS 
+ ?>
+ 
 
 
  <?php } ?>

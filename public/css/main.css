@@ -61,7 +61,7 @@ nav {
     font-size: 30px; }
 
 #page {
-  color: #888;
+  color: #ddd;
   margin: 100px 200px;
   padding: 30px; }
   #page .projects {
@@ -81,6 +81,9 @@ nav {
 select {
   font-size: 25px; }
 
+.right {
+  float: right; }
+
 /******************************
         /MEDIA QUERIES
 *******************************/
@@ -91,8 +94,43 @@ select {
   #page {
     margin: 0;
     margin-top: 100px; } }
+
+
 /*MOBILE DEVICES ONLY*/
+
 @media only screen and (max-device-width: 1000px) {
+  body, nav {
+    font-size: 30px; }
+
+  header {
+    height: 100px; }
+    header h1 {
+      font-size: 60px;
+      top: -25px; }
+      header h1 a {
+        color: #3C948B; }
+
+  nav {
+    width: 580px;
+    height: 200px;
+    right: 70px;
+    top: -30px; }
+    nav li {
+      font-size: 35px;
+      height: 60px; }
+    nav .fa {
+      font-size: 50px; }
+
+  #page {
+    margin: 0;
+    margin-top: 100px; }
+    #page select {
+      width: 90%;
+      font-size: 45px;
+      padding: 5px;
+      margin-bottom: 10px; } }
+
+@media (max-device-width: 1000px) {
   body, nav {
     font-size: 30px; }
 

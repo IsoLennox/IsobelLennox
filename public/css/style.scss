@@ -2,7 +2,8 @@
 $panel-color: #F4F4F4; 
 $accent: #3C948B;   
 $background: #202121;
-$font: #888;
+//$font: #888;
+$font: #ddd;
 
 $header-font: 'Great Vibes', cursive;
 $text-font: 'Nunito', sans-serif;
@@ -126,7 +127,7 @@ select{
     }
 
 
-
+.right{float: right;}
 
 /******************************
         /MEDIA QUERIES

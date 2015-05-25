@@ -32,3 +32,13 @@
 [26-Apr-2015 14:22:58 America/Chicago] PHP Warning:  unlink(img/wireframe1.png): No such file or directory in /home4/ilennox/public_html/admin/edit_project.php on line 12
 [26-Apr-2015 14:23:07 America/Chicago] PHP Warning:  unlink(img/wireframe1.png): No such file or directory in /home4/ilennox/public_html/admin/edit_project.php on line 12
 [26-Apr-2015 14:53:39 America/Chicago] PHP Warning:  unlink(img/default_project.png): No such file or directory in /home4/ilennox/public_html/admin/edit_project.php on line 12
+[10-May-2015 14:08:01 America/Chicago] PHP Warning:  mysqli_real_escape_string() expects exactly 2 parameters, 1 given in /home4/ilennox/public_html/admin/index.php on line 53
+[10-May-2015 14:08:09 America/Chicago] PHP Warning:  mysqli_real_escape_string() expects exactly 2 parameters, 1 given in /home4/ilennox/public_html/admin/index.php on line 53
+[10-May-2015 14:10:03 America/Chicago] PHP Warning:  mysqli_real_escape_string() expects exactly 2 parameters, 1 given in /home4/ilennox/public_html/admin/index.php on line 54
+[10-May-2015 14:14:37 America/Chicago] PHP Fatal error:  Call to undefined function real_escape_string() in /home4/ilennox/public_html/admin/index.php on line 54
+[10-May-2015 14:15:18 America/Chicago] PHP Warning:  mysqli_real_escape_string() expects exactly 2 parameters, 1 given in /home4/ilennox/public_html/admin/index.php on line 54
+[10-May-2015 14:15:25 America/Chicago] PHP Warning:  mysqli_real_escape_string() expects exactly 2 parameters, 1 given in /home4/ilennox/public_html/admin/index.php on line 54
+[10-May-2015 14:15:47 America/Chicago] PHP Warning:  mysqli_real_escape_string() expects exactly 2 parameters, 1 given in /home4/ilennox/public_html/admin/index.php on line 54
+[10-May-2015 15:46:51 America/Chicago] PHP Warning:  getimagesize(): Filename cannot be empty in /home4/ilennox/public_html/admin/inc/upload_project_img.php on line 8
+[10-May-2015 15:49:00 America/Chicago] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home4/ilennox/public_html/admin/index.php on line 541
+[13-May-2015 15:45:01 America/Chicago] PHP Warning:  getimagesize(): Filename cannot be empty in /home4/ilennox/public_html/admin/inc/upload_project_img.php on line 8
